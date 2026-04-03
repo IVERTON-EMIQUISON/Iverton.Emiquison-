@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Github, Linkedin, Mail, Download, Code, Briefcase, User, ExternalLink, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react'
 import Technologies from './components/technolgy'
-import Contact  from './components/Contact'
+
 // Tipos
 interface Project {
   title: string

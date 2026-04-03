@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Github, Linkedin, Mail, Download, Code, Briefcase, User, ExternalLink, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react'
 import Technologies from './components/technolgy'
+import Contact  from './components/Contact'
 // Tipos
 interface Project {
   title: string
@@ -23,19 +24,15 @@ function App() {
   // Dados do Portfólio
   const portfolio = {
     name: "Iverton Emiquison",
-    role: "Desenvolvedor Full Stack",
+    role: "Desenvolvedor de Software",
     location: "Brasil",
     email: "ivertonbessa@gmail.com",
-    github: "https://github.com/seu-usuario",
-    linkedin: "https://linkedin.com/in/seu-perfil",
+    github: "https://github.com/IVERTON-EMIQUISON",
+    linkedin: "https://www.linkedin.com/in/iverton-emiquison-9a5441231/",
     photo: "./img/iverton.png",
-    cvUrl: "/cv-iverton.pdf", // Coloque seu CV na pasta public
 
-    about: `Sou Bacharel em Tecnologia da Informação e atualmente cursando Engenharia de Software pela UFERSA. 
-    Minha jornada reflete uma paixão intensa pela programação e tecnologia. Estou comprometido em adquirir 
-    conhecimentos sólidos e aplicá-los de maneira prática, contribuindo significativamente para o avanço 
-    profissional. Busco sempre novos desafios e oportunidades para expandir meu conhecimento e impactar 
-    positivamente o campo da tecnologia.`,
+    about: `Sou Bacharel em Tecnologia da Informação e atualmente curso Engenharia de Software pela UFERSA. 
+    Tenho forte interesse por programação e desenvolvimento web, buscando aplicar na prática os conhecimentos adquiridos. Estou sempre em busca de novos desafios que contribuam para minha evolução profissional e me permitam desenvolver soluções que gerem impacto positivo.`
   }
 
   const projects: Project[] = [
@@ -110,6 +107,7 @@ function App() {
 
           {/* Desktop */}
           <nav className="hidden md:flex gap-8 text-slate-300">
+            <a href="#home" className="hover:text-white">Home</a>
             <a href="#sobre" className="hover:text-white">Sobre</a>
             <a href="#projetos" className="hover:text-white">Projetos</a>
             <a href="#contato" className="hover:text-white">Contato</a>
@@ -123,15 +121,17 @@ function App() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-slate-900 border-t border-slate-800 px-6 py-4 space-y-4">
+          <div className="md:hidden bg-slate-900 border-t border-slate-800 px-6 flex flex-col items-center justify-center py-4 space-y-4 text-center">
+            <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
             <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
             <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
           </div>
         )}
       </header>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 py-20">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
 
@@ -156,8 +156,7 @@ function App() {
             </p>
 
             <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
-              Desenvolvedor com foco em criar soluções digitais eficientes e experiências
-              incríveis para usuários. Especializado em desenvolvimento web full stack.
+              Atuo com desenvolvimento web, criando soluções digitais eficientes e experiências modernas centradas no usuário.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -170,8 +169,8 @@ function App() {
               </a>
 
               <a
-                href={portfolio.cvUrl}
-                download
+                href='./curriculo.pdf'
+                download="curriculo-iverton.pdf"
                 className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-semibold transition-all duration-300 ease-out border border-slate-700 hover:border-indigo-500 flex items-center gap-2"
               >
                 <Download className="w-5 h-5" />
@@ -372,11 +371,13 @@ function App() {
       {/* Contato */}
       <section id="contato" className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Vamos Trabalhar Juntos?</h2>
+          <h2 className="text-4xl font-bold mb-6">Entre em <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Contato
+            </span></h2>
           <p className="text-xl text-slate-300 mb-8">
-            Estou disponível para novos projetos e oportunidades. Entre em contato!
+            Vamos trabalhar juntos para criar soluções inovadoras.
           </p>
-
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`mailto:${portfolio.email}`}
@@ -396,6 +397,7 @@ function App() {
               LinkedIn
             </a>
           </div>
+        
         </div>
       </section>
 
